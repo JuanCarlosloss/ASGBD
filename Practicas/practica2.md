@@ -27,7 +27,26 @@
   - Comando ===> **SHOW GRANTS FOR CURRENT_USER()**
   - ![image](https://github.com/user-attachments/assets/b94bd1ce-b250-4dc4-a527-da7cce5e8194)
 10. Concede permisos al usuario Bego de lectura y actualización sobre la tabla usuario.
+  - Comando ===> GRANT SELECT, UPDATE ON mariadb_jc.usuario TO 'Bego'@'localhost'
+  - FLUSH PRIVILEGES
+  - ![image](https://github.com/user-attachments/assets/76e1fd7e-2df0-41be-a9e8-5bf73fa25ed2)
 11. Conéctate como Bego y lanza una sentencia select y otra update sobre la tabla usuario. Lanza también una sentencia delete. Muestra las sentencias y sus efectos sobre la base de datos de la red social.
+  - Comando ===> SELECT * FROM usuario
+  - ![image](https://github.com/user-attachments/assets/32f0669d-e309-4042-9634-01fb5fd6110a)
+  - Comando ===> Update usuario set nombre = 'Juan Carlos' Where nombre = 'Juancar'
+  - ![image](https://github.com/user-attachments/assets/68a17087-5534-4bed-85a6-b9a815c09949)
+  - Comando ===> Delete from usuario Where nombre = 'Marco'
+  - ![image](https://github.com/user-attachments/assets/8ea7f469-837c-461b-a784-2d478eb04e70)
 12. Concede permisos al usuario Mati de borrado sobre la tabla grupo.
+  - Comando ===>GRANT DELETE ON mariadb_jc.grupo TO 'Mati'@'lasalleinstitucion.es'
+  - FLUSH PRIVILEGES
+  - ![image](https://github.com/user-attachments/assets/2b328635-7ad1-4712-9a6c-1bbc764f4d3b)
 13. Crea el usuario Crispula con contraseña “rosita” para que pueda acceder desde el dominio lasalleinstitucion.es y con permiso de lectura, actualización y borrado sobre las tablas usuario, grupo y comentario. Concede además permisos a Crispula para que pueda conceder sus permisos a otros usuarios.
+  - Comando ===> CREATE USER 'Crispula'@'lasalleinstitucion.es' IDENTIFIED BY 'rosita'
+  - ![image](https://github.com/user-attachments/assets/f07dc4eb-e30e-4927-b253-b2d394202927)
+  - Comando ===> GRANT SELECT, UPDATE, DELETE ON mariadb_jc.usuario TO 'Crispula'@'lasalleinstitucion.es' WITH GRANT OPTION
+  - GRANT SELECT, UPDATE, DELETE ON mariadb_jc.usuario TO 'Crispula'@'lasalleinstitucion.es' WITH GRANT OPTION
+  - GRANT SELECT, UPDATE, DELETE ON mariadb_jc.comentario TO 'Crispula'@'lasalleinstitucion.es' WITH GRANT OPTION
+  - FLUSH PRIVILEGES
+  - ![image](https://github.com/user-attachments/assets/27986ecf-99cd-4c99-8ea5-cc2e4f91e24d)
 14. Conéctate con el usuario Crispula.
