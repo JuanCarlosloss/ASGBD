@@ -1,4 +1,4 @@
-
+# Users_MariaDB
 1. Indica el nombre de las tablas que aparecen en tu base de datos mysql.
   - Comando ===> **SELECT TABLE_NAME, TABLE_TYPE, ENGINE, TABLE_ROWS, DATA_LENGTH, INDEX_LENGTH, CREATE_TIME
     FROM INFORMATION_SCHEMA.TABLES
@@ -50,3 +50,52 @@
   - FLUSH PRIVILEGES
   - ![image](https://github.com/user-attachments/assets/27986ecf-99cd-4c99-8ea5-cc2e4f91e24d)
 14. Conéctate con el usuario Crispula.
+  - ![image](https://github.com/user-attachments/assets/1ecb7134-41df-4fde-baa9-9906dcf2ddc1)
+15. Inserta un registro en la tabla comentario. Actualiza un registro de la tabla grupo. Muestra
+las sentencias y su resultado al ejecutarlas sobre la base de datos de la red social.
+  - Comando ===> MariaDB [mariadb_jc]> insert into comentario (nombre) values ('Gilbert')
+  - MariaDB [mariadb_jc]> insert into comentario (nombre) values ('Juancar')
+  - ![image](https://github.com/user-attachments/assets/0264c32c-7b30-4929-ac35-701fbb6ffc3d)
+  - Comando ===> Update grupo set nombre = 'Marco' Where nombre = 'Juancar2'
+  - ![image](https://github.com/user-attachments/assets/6bca3913-03bf-4467-b579-c648267056a0)
+16. Concede permiso de borrado sobre la tabla usuario a Bego. Muestra la sentencia
+utilizada y el resultado de su ejecución.
+  - Comando ===> GRANT DELETE ON mariadb_jc.usuario TO 'Bego'@'localhost'
+  - FLUSH PRIVILEGES
+  - ![image](https://github.com/user-attachments/assets/2b11c754-e85c-4daf-9f81-013d5605dcca)
+17. Concede permiso de lectura y actualización sobre la tabla grupo a Mati. Muestra la
+sentencia utilizada y el resultado de su ejecución.
+  - Comando ===> GRANT SELECT, UPDATE ON mariadb_jc.grupo TO 'Mati'@'lasalleinstitucion.es'
+  - FLUSH PRIVILEGES;
+  - ![image](https://github.com/user-attachments/assets/c61f7d3b-4659-432a-b93b-74fc1f33c627)
+18. Vuelve a conectarte con tu usuario de mysql.
+  - Comando ===> sudo mariadb
+  - ![image](https://github.com/user-attachments/assets/b67c5c9d-33b1-4976-aef7-bdea46fa83c7)
+19. Concede permisos totales sobre todas las tablas de la base de datos de la red social a
+    mifi. Muestra la sentencia utilizada y el resultado de su ejecución.
+  - Comando ===> GRANT ALL PRIVILEGES ON mariadb_jc.* TO 'Mifi'@'lasalleinstitucion.es';
+  - FLUSH PRIVILEGES
+  - ![image](https://github.com/user-attachments/assets/72d324c4-39a0-4793-a4e5-1d1eb20164c5)
+20. Quítale permisos de borrado sobre todas las tablas de la base de datos de la red social a
+Mifi. Muestra la sentencia utilizada y el resultado de su ejecución.
+  - Comando ===> REVOKE DELETE ON mariadb_jc.* FROM 'Mifi'@'lasalleinstitucion.es'
+  - FLUSH PRIVILEGES
+  - ![image](https://github.com/user-attachments/assets/958c24e4-1dd0-47c1-8a01-73d6b9455b3c)
+21. Muestra los usuarios creados y sus privilegios (los que estén en la tabla user de la base de
+datos mysql). Indica la sentencia que has utilizado para mostrar esos usuarios.
+  - Comando ===> SELECT User, Host, 
+  - SELECT_PRIV, INSERT_PRIV, UPDATE_PRIV, DELETE_PRIV, 
+  - CREATE_PRIV, DROP_PRIV, 
+  - GRANT_PRIV, 
+  - INDEX_PRIV, ALTER_PRIV 
+  - FROM mysql.user;
+  - ![image](https://github.com/user-attachments/assets/1f1bce17-5ebc-4ebe-9e72-bbc22f2899b4)
+22. Cambia la contraseña del usuario Mifi modificando directamente la tabla user. Indica
+la sentencia que has utilizado para ello.
+
+23. ¿Has necesitado hacer FLUSH PRIVILEGES después de la sentencia anterior? Explica el porqué
+y para qué sirve FLUSH PRIVILEGES.
+
+24. ¿Puedo utilizar la función PASSWORD con GRANT? Justifica tu respuesta.
+
+25. Elimina el usuario Mifli. Muestra la sentencia utilizada y el resultado de su ejecución.
